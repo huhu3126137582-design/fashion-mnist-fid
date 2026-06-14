@@ -18,6 +18,7 @@ measured scores are:
 | Distribution | FashionMNIST-FID |
 | --- | ---: |
 | Original test10k | 0.00 |
+| Test10k + very light Gaussian noise (`sigma=0.023`) | 4.96 |
 | Test10k + light Gaussian noise (`sigma=0.10`) | 38.31 |
 | Test10k + strong Gaussian noise (`sigma=0.30`) | 53.05 |
 | Random Gaussian noise clamped to `[0, 1]` | 59.39 |

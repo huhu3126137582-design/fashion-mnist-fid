@@ -31,6 +31,7 @@ def main():
     generator = torch.Generator().manual_seed(2026)
     variants = {
         "Original test images": lambda x, n: x,
+        "Very light noise": lambda x, n: (x + 0.023 * n).clamp(0, 1),
         "Light noise": lambda x, n: (x + 0.10 * n).clamp(0, 1),
         "Strong noise": lambda x, n: (x + 0.30 * n).clamp(0, 1),
         "Random noise": lambda x, n: n.mul(0.5).add(0.5).clamp(0, 1),
@@ -55,7 +56,7 @@ def main():
             real_stats["mu"], real_stats["sigma"], mu, sigma
         )
 
-    figure, axes = plt.subplots(4, 1, figsize=(12, 9), constrained_layout=True)
+    figure, axes = plt.subplots(5, 1, figsize=(12, 11), constrained_layout=True)
     for axis, (name, images) in zip(axes, previews.items()):
         grid = make_grid(images, nrow=20, padding=1, pad_value=1)
         axis.imshow(grid.permute(1, 2, 0), vmin=0, vmax=1)
