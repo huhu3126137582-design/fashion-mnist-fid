@@ -93,13 +93,6 @@ python evaluate_fashion_mnist_fid.py \
 The JSON report records the score, sample count, classifier and real-stats
 SHA256 values, classifier test accuracy, and pixel range statistics.
 
-## MeanFlow integration
-
-The original MeanFlow/iMF-specific evaluator remains available as
-`evaluate.py`, with its convenience wrapper at
-`scripts/run_fashionmnist_fid.sh`. Those files are integration examples and
-are not required by the generic FashionMNIST-FID evaluator.
-
 ## Tests
 
 ```bash
