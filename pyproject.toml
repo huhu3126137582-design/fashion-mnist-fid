@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fashion-mnist-fid"
+version = "0.1.0"
+description = "A reproducible classifier-feature FID for FashionMNIST"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "torch>=2.1",
+    "torchvision>=0.16",
+    "tqdm>=4.66",
+    "Pillow>=9.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7.4"]
+visualization = ["matplotlib>=3.7"]
+
+[project.scripts]
+fashion-mnist-fid = "evaluate_fashion_mnist_fid:main"
+fashion-mnist-fid-stats = "build_real_stats:main"
+
+[tool.setuptools]
+py-modules = [
+    "build_real_stats",
+    "evaluate_fashion_mnist_fid",
+    "fashion_mnist_fid",
+    "train_fid_classifier",
+]
+
+[tool.setuptools.packages.find]
+include = ["models*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
